@@ -3,10 +3,20 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { useGLTF, useTexture, AccumulativeShadows, RandomizedLight, Decal, Environment, Center } from '@react-three/drei'
 import { easing } from 'maath'
 import { useSnapshot } from 'valtio'
+import {orbitControls} from '@react-three/drei'
 import { state } from './store'
+// import { extend } from '@react-three/fiber'
+// extend({ orbitControls, TransformControls })
 
-export const App = ({ position = [0, 0, 2.5], fov = 25 }) => (
+import { Stats, OrbitControls } from '@react-three/drei'
+
+export const App = ({ position = [0, 0, 2.5], fov = 30 }) => (
   <Canvas shadows camera={{ position, fov }} gl={{ preserveDrawingBuffer: true }} eventSource={document.getElementById('root')} eventPrefix="client">
+    {/* <orbitControls /> */}
+    <OrbitControls enableDamping={false}  enablePan={false}  
+   
+    
+    />
     <ambientLight intensity={0.5} />
     <Environment preset="city" />
     <CameraRig>
@@ -51,5 +61,3 @@ function Shirt(props) {
   )
 }
 
-useGLTF.preload('/shirt_baked_collapsed.glb')
-;['/react.png', '/three2.png', '/pmndrs.png'].forEach(useTexture.preload)

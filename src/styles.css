@@ -23,6 +23,7 @@ body,
   padding: 0;
   overflow: hidden;
   user-select: none;
+  cursor: pointer;
 }
 
 body {
@@ -79,6 +80,7 @@ section {
 .section--container {
   margin-top: 5vh;
   margin-left: 5vw;
+  cursor: pointer;
 }
 
 .section--container.hidden {
